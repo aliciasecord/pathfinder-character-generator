@@ -93,6 +93,7 @@ $(document).ready(function() {
     $('#SelectRace').click(function() {
         $('#race').fadeOut('fast');
         $('#class').fadeIn('fast');
+        $('#ConfirmClass').hide();
     });
     
     $('#ResetRace').click(function() {
