@@ -6,6 +6,7 @@ body {
 
 .container {
 	width: 360px;
+	position: absolute;
 	top: 40%;
 	left: 40%;
 }
