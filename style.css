@@ -142,6 +142,20 @@ li.active {
 #ConfirmRace {
 }
 
+#charnext {
+    width: 80%;
+    margin-left: 5%;
+}
+
+#tryagain {
+    width: 90px;
+    margin-left: 5%;
+}
+
+#chooseagain {
+    width: 130px;
+}
+
 div.chosenrace {
     width: 310px;
     margin: 20px 0px;
@@ -157,12 +171,13 @@ div.chosenclass {
     padding: 50px 10px;
 }
 
-.character h2 {
+#character h2 {
     font-size: 50px;    
 }
 
-.character span {
+#character span {
     font-size: 30px;
 }
 
 
+/* colors: 88846F FFFFFF D5D2C3 434088 C4C3D5 */
