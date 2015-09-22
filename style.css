@@ -1,0 +1,189 @@
+body {
+    background-image: url(http://i669.photobucket.com/albums/vv59/asecord/bg-grid.jpg);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    width: 360px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Forum', cursive;
+    text-align: center;
+}
+
+h1 {
+    font-size: 34px;
+    margin-bottom: -10px;
+}
+
+small {
+    font-size: 12px;
+    font-weight: bold;
+    color: #88846F;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+small a {
+    color: #88846F;
+}
+
+small a:visited {
+    color: #88846F
+}
+
+a:hover {
+    background-color: #C4C3D5;
+}
+
+small a:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+ul {
+    width: 94%;
+    text-align: center;
+    padding-left: 0px;
+    padding-bottom: 0px;
+}
+
+ul span {
+    display: inline-block;
+    width: 75px;
+    padding:25px 0px;
+    border: 1px solid #88846F;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    border-radius:5px;
+}
+
+ul span:hover {
+    background-color: #C4C3D5;
+}
+
+li {
+    list-style-type: none;
+    display: inline;
+    vertical-align: middle;
+}
+
+li.active {
+    background-color: #C4C3D5;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.6);
+    margin: 2%;
+    padding: 2%;   
+}
+
+.btn {
+    background-color: #C4C3D5;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    padding: 15px;
+    width: 80px;
+    margin-left: 10px;
+    font-size: 12px;
+    display: inline-block;
+    border-radius:10px;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #434088;
+}
+
+#pathfinder_header {
+    width: 160px;
+}
+
+#level span {
+    padding: 3px;
+}
+
+#choose p {
+    text-align: center;
+}
+
+#ChooseRace {
+    width: 155px;
+}
+
+#race {
+    padding: 0% 3%;
+    width: 94%;    
+}
+
+#race img {
+    width: 92%;
+}
+
+#race li {
+}
+
+#class img {
+    width: 92%;
+}
+
+#ChooseClass {
+    padding-top: 10px;
+    width: 75px;
+}
+
+#SelectRace {
+    margin-left: 32px;
+}
+#SelectClass {
+    margin-left: 32px;
+}
+
+#ConfirmRace {
+}
+
+div.chosenrace {
+    width: 310px;
+    margin: 20px 0px;
+    background-color: white;
+    text-align: center;
+    padding: 50px 0px;
+}
+div.chosenclass {
+    width: 310px;
+    margin: 20px 0px;
+    background-color: white;
+    text-align: center;
+    padding: 50px 0px;
+}
+
+
+/* colors: 88846F FFFFFF D5D2C3 434088 C4C3D5 */
+
+@media only screen and (min-width: 600px) {
+    h1 {
+        font-size: 40;
+    }
+    #pathfinder_header {
+        width: 200;
+    }
+}
+
+@media only screen and (min-width: 1020px) {
+	h1 {
+	    font-size: 50;
+	}
+	
+	#container {
+		max-width: 100%;
+		background: #aaa;
+	}
+	
+	
+	section,
+	aside {
+		width: 100%;
+	
+	}
+
+}
