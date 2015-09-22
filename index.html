@@ -21,14 +21,12 @@
         <p><span class="btn" id="random">Random Character</span><span href="#" class="btn" id="guide">Guided Selection</span></p>
         <p>&nbsp;</p>
     </div>
-    <div class="character">
-        <h2 id="character">Your character: <br> 
-        <span id="characterlevel" class="hide">Level </span>
-        <span class="hide chosenrace Dwarf">Dwarven</span><span class="hide chosenrace Elf">Elf</span><span class="hide chosenrace Human">Human</span><span class="hide chosenrace Halfling">Halfling</span><span class="hide chosenrace Gnome">Gnome</span><span class="hide chosenrace Half-Orc">Half-Orc</span><span class="hide chosenrace Half-Elf">Half-Elf</span>
-        <span class="hide chosenclass Barbarian">Barbarian</span><span class="hide chosenclass Bard">Bard</span><span class="hide chosenclass Cleric">Cleric</span><span class="hide chosenclass Druid">Druid</span><span class="hide chosenclass Fighter">Fighter</span><span class="hide chosenclass Monk">Monk</span><br><span class="hide chosenclass Paladin">Paladin</span><span class="hide chosenclass Ranger">Ranger</span><span class="hide chosenclass Rogue">Rogue</span><span class="hide chosenclass Sorcerer">Sorcerer</span><span class="hide chosenclass Wizard">Wizard</span>
+    <div id="character">
+        <h2>Your character: <br> 
+        <span id="characterlevel"></span> <span id="characterrace"></span> <span id="characterclass"> </span>
         </h2>
     </div>
-    <div class="guided">    
+    <div id="guided">    
         <div id="level">
             <h3>Choose your level: 
                 <select id="selectlevel">
@@ -191,9 +189,16 @@
                 <p><span class="btn" id="SelectClass">Confirm</span><span class="btn" id="ResetClass">Reset</span></p>
             </div>
         </div>
-        
-        
-    <div>
+    </div>
+    <div id="again">
+        <p><span class="btn" id="charnext">Great! Let's roll some stats</span></p>
+        <p><span class="btn" id="tryagain">Try Again</span><span href="#" class="btn" id="chooseagain">Let me choose</span></p>
+        <p>&nbsp;</p>
+    </div>
+    <div id="stats">
+    
+    </div>
+    
 </div>
 
 </body>
