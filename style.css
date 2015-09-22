@@ -15,6 +15,10 @@ h1 {
     margin-bottom: -10px;
 }
 
+header.img {
+	width: 96%;
+}
+
 small {
     font-size: 12px;
     font-weight: bold;
