@@ -2,7 +2,11 @@ body {
     background-image: url(http://i669.photobucket.com/albums/vv59/asecord/bg-grid.jpg);
     font-family: 'Open Sans', sans-serif;
     font-size: 12px;
-    width: 360px;
+}
+
+.container {
+	width: 360px;
+	margin: auto auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
