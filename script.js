@@ -4,6 +4,8 @@ var Race = Race[Math.floor(Math.random() * Race.length)];
 var Class = ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Wizard']
 var Class = Class[Math.floor(Math.random() * Class.length)];
 
+var Level = Math.floor(Math.random() * 20) + 1
+
 $(document).ready(function() {
     /* At the start, the .character div should be hidden */
     $('.character').hide();
@@ -16,14 +18,6 @@ $(document).ready(function() {
         $('#race').hide();
         $('#class').hide();
         $('.guided').fadeIn('fast');
-    });
-    
-    /* Whichever option they pick, get rid of the choose your path option */
-    $('#random').click(function() {
-        $('#choose').fadeOut('fast');
-    });
-    
-    $('#guide').click(function() {
         $('#choose').fadeOut('fast');
     });
     
@@ -82,10 +76,29 @@ $(document).ready(function() {
         var PCrace = 'Half-Orc';
     });
     
-    /*NEED TO FIX THIS ONE TO BE RANDOM*/
     $('#ChooseRace').click(function() {
-        $('.Half-Orc').fadeIn('fast');
-        var PCrace = 'Half-Orc';
+        var PCrace = Race
+        if(PCrace == 'Dwarf') {
+    	    $('span.Dwarf').fadeIn('fast');
+    	    }
+        else if (PCrace == 'Elf') {
+	        $('span.Elf').fadeIn('fast');
+            }
+        else if (PCrace == 'Gnome') {
+	        $('span.Gnome').fadeIn('fast');
+            }
+        else if (PCrace == 'Halfling') {
+	        $('span.Halfling').fadeIn('fast');
+            }
+        else if (PCrace == 'Half-Elf') {
+	        $('span.Half-Elf').fadeIn('fast');
+            }
+        else if (PCrace == 'Half-Orc') {
+	        $('span.Half-Orc').fadeIn('fast');
+            }
+        else {
+	        $('span.Human').fadeIn('fast');
+            }
         $('#race').fadeOut('fast');
         $('#class').fadeIn('fast');
     });
@@ -167,10 +180,41 @@ $(document).ready(function() {
         var PCclass = 'Sorcerer';
     });
     
-    /*NEED TO FIX THIS ONE TO BE RANDOM*/
     $('#ChooseClass').click(function() {
-        $('.Sorcerer').fadeIn('fast');
-        var PCclass = 'Sorcerer';
+        var PCclass = Class
+        if(PCclass == 'Barbarian') {
+    	    $('span.Barbarian').fadeIn('fast');
+    	    }
+        else if (PCclass == 'Bard') {
+	        $('span.Bard').fadeIn('fast');
+            }
+        else if (PCclass == 'Cleric') {
+	        $('span.Cleric').fadeIn('fast');
+            }
+        else if (PCclass == 'Druid') {
+	        $('span.Druid').fadeIn('fast');
+            }
+        else if (PCclass == 'Fighter') {
+	        $('span.Fighter').fadeIn('fast');
+            }
+        else if (PCclass == 'Monk') {
+	        $('span.Monk').fadeIn('fast');
+            }
+        else if (PCclass == 'Paladin') {
+	        $('span.Paladin').fadeIn('fast');
+            }
+        else if (PCclass == 'Ranger') {
+	        $('span.Ranger').fadeIn('fast');
+            }
+        else if (PCclass == 'Rogue') {
+	        $('span.Rogue').fadeIn('fast');
+            }
+        else if (PCclass == 'Wizard') {
+	        $('span.Wizard').fadeIn('fast');
+            }
+        else {
+	        $('span.Sorcerer').fadeIn('fast');
+            }
         $('#class').fadeOut('fast');
         $('.character').fadeIn('fast');
     });
@@ -186,6 +230,78 @@ $(document).ready(function() {
         $('#class ul').fadeIn('fast');
         $('#class img').fadeIn('fast');
         $('#class h3').fadeIn('fast');
+    });
+    
+    /* Random Path */
+    
+    /* If they choose the Random option, we have to chose level, race and class */
+    $('#random').click(function() {
+        /*Chosse level*/
+        var LevelSelection = Level;
+        $('#characterlevel').show();
+        $('#characterlevel').append(LevelSelection);
+        
+        /*Chosse race*/
+        var PCrace = Race
+        if(PCrace == 'Dwarf') {
+    	    $('span.Dwarf').fadeIn('fast');
+    	    }
+        else if (PCrace == 'Elf') {
+	        $('span.Elf').fadeIn('fast');
+            }
+        else if (PCrace == 'Gnome') {
+	        $('span.Gnome').fadeIn('fast');
+            }
+        else if (PCrace == 'Halfling') {
+	        $('span.Halfling').fadeIn('fast');
+            }
+        else if (PCrace == 'Half-Elf') {
+	        $('span.Half-Elf').fadeIn('fast');
+            }
+        else if (PCrace == 'Half-Orc') {
+	        $('span.Half-Orc').fadeIn('fast');
+            }
+        else {
+	        $('span.Human').fadeIn('fast');
+            }
+        /*Choose Class*/
+        var PCclass = Class
+        if(PCclass == 'Barbarian') {
+    	    $('span.Barbarian').fadeIn('fast');
+    	    }
+        else if (PCclass == 'Bard') {
+	        $('span.Bard').fadeIn('fast');
+            }
+        else if (PCclass == 'Cleric') {
+	        $('span.Cleric').fadeIn('fast');
+            }
+        else if (PCclass == 'Druid') {
+	        $('span.Druid').fadeIn('fast');
+            }
+        else if (PCclass == 'Fighter') {
+	        $('span.Fighter').fadeIn('fast');
+            }
+        else if (PCclass == 'Monk') {
+	        $('span.Monk').fadeIn('fast');
+            }
+        else if (PCclass == 'Paladin') {
+	        $('span.Paladin').fadeIn('fast');
+            }
+        else if (PCclass == 'Ranger') {
+	        $('span.Ranger').fadeIn('fast');
+            }
+        else if (PCclass == 'Rogue') {
+	        $('span.Rogue').fadeIn('fast');
+            }
+        else if (PCclass == 'Wizard') {
+	        $('span.Wizard').fadeIn('fast');
+            }
+        else {
+	        $('span.Sorcerer').fadeIn('fast');
+            }
+        /* Then hide the choices and show the character description */
+        $('#choose').fadeOut('fast');
+        $('.character').fadeIn('fast');
     });
     
 });
