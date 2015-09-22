@@ -15,7 +15,6 @@ $(document).ready(function() {
     $('#guide').click(function() {
         $('#race').hide();
         $('#class').hide();
-        $('.character').fadeIn('fast');
         $('.guided').fadeIn('fast');
     });
     
@@ -172,10 +171,12 @@ $(document).ready(function() {
         $('.Sorcerer').fadeIn('fast');
         var PCclass = 'Sorcerer';
         $('#class').fadeOut('fast');
+        $('.character').fadeIn('fast');
     });
     
     $('#SelectClass').click(function() {
         $('#class').fadeOut('fast');
+        $('.character').fadeIn('fast');
     });
     
     $('#ResetClass').click(function() {
