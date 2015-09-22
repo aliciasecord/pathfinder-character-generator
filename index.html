@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel='stylesheet' href='style.css'/>
+    <script src='http://code.jquery.com/jquery-1.11.1.min.js'></script>
+    <script src='http://code.jquery.com/ui/1.11.1/jquery-ui.min.js'></script>
+<script src='script.js'></script>
+	<link href='https://fonts.googleapis.com/css?family=Forum' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Random<img src="http://i669.photobucket.com/albums/vv59/asecord/PathfinderLogo.png" id="Pathfinder_Header" alt="Pathfinder"> <br> Character Generator</h1>
+        <h2><small>Based on Paizo's Pathfinder Roleplaying Game. <a href="http://paizo.com/pathfinderRPG/prd/"><br>Read the full rules here.</a></small><h2>
+        <p>&nbsp;</p>
+    </div>
+    <div id="choose">
+        <h2>Choose your path</h2>
+        <p><span class="btn" id="random">Random Character</span><span href="#" class="btn" id="guide">Guided Selection</span></p>
+        <p>&nbsp;</p>
+    </div>
+    <div class="character">
+        <h2 id="character">Your character: <br> 
+        <span id="characterlevel" class="hide">Level </span>
+        <span class="hide chosenrace Dwarf">Dwarf</span><span class="hide chosenrace Elf">Elf</span><span class="hide chosenrace Human">Human</span><span class="hide chosenrace Halfling">Halfling</span><span class="hide chosenrace Gnome">Gnome</span><span class="hide chosenrace Half-Orc">Half-Orc</span><span class="hide chosenrace Half-Elf">Half-Elf</span>
+        <span class="hide chosenclass Barbarian">Barbarian</span><span class="hide chosenclass Bard">Bard</span><span class="hide chosenclass Cleric">Cleric</span><span class="hide chosenclass Druid">Druid</span><span class="hide chosenclass Fighter">Fighter</span><span class="hide chosenclass Monk">Monk</span><br><span class="hide chosenclass Paladin">Paladin</span><span class="hide chosenclass Ranger">Ranger</span><span class="hide chosenclass Rogue">Rogue</span><span class="hide chosenclass Sorcerer">Sorcerer</span><span class="hide chosenclass Wizard">Wizard</span>
+        </h2>
+    </div>
+    <div class="guided">    
+        <div id="level">
+            <h3>Choose your level: 
+                <select id="selectlevel">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                </select>
+                <span class="btn">Confirm</span>
+            <h3>
+        </div>
+        
+        <div id="race">
+            
+            <img src="http://shianra.com/rpg/img/races.jpg">
+            <h3>Choose a race</h3>
+            <ul>
+                <li><span class="racepick" id="Dwarf">Dwarf</span></li>
+                <li><span class="racepick" id="Halfling">Halfling</span></li>
+                <li><span href="#" class="racepick" id="Elf">Elf</span></li>
+            </ul>
+            <ul>
+                <li><span class="racepick" id="Human">Human</span></li>
+                <li><span class="racepick" id="Gnome">Gnome</span></li>
+                <li><span class="racepick" id="Half-Orc">Half-Orc</span></li>
+            </ul>
+            <ul>
+                <li><span class="racepick" id="Half-Elf">Half-Elf</span></li>
+                <li><span class="racepick" id="ChooseRace">Choose For Me</span></li>
+            </ul>
+            
+            <div class="hide chosenrace Dwarf">
+                <h2>Dwarf</h2> 
+                <p>+2 CON, +2 WIS, -2 CHA</p>
+                <p>Languages: Dwarven, Common</p>
+            </div>
+            <div class="hide chosenrace Halfling">
+                <h2>Halfling</h2> 
+                <p>+2 CHA, +2 DEX, -2 STR</p>
+                <p>Languages: Halfling, Common</p>
+            </div>
+            <div class="hide chosenrace Elf">
+                <h2>Elf</h2>
+                <p>+2 DEX, +2 INT, –2 CON</p>
+                <p>Languages: Elven, Common</p>
+            </div>
+            <div class="hide chosenrace Human">
+                <h2>Human</h2>
+                <p>+2 to one ability score</p>
+                <p>Languages: Common</p>
+            </div>
+            <div class="hide chosenrace Gnome">
+                <h2>Gnome</h2>
+                <p>+2 CON, +2 CHA, –2 STR</p>
+                <p>Languages: Gnome, Sylvan, Common</p>
+            </div>
+            <div class="hide chosenrace Half-Orc">
+                <h2>Half-Orc</h2>
+                <p>+2 to one ability score</p>
+                <p>Languages: Orcish, Common</p>
+            </div>
+            <div class="hide chosenrace Half-Elf">
+                <h2>Half-Elf</h2>
+                <p>+2 to one ability score</p>
+                <p>Elven, Common</p>
+            </div>
+            <div id="ConfirmRace"><p><span class="btn" id="SelectRace">Confirm</span><span class="btn" id="ResetRace">Reset</span></p></div>
+            
+        </div>
+        
+    
+        <div id="class">
+            
+            <p><img src="http://i280.photobucket.com/albums/kk199/MaskedBrute/ScreenShot2013-07-22at15339PM.png" ></p>
+            <h3>Choose a class</h3>
+            <ul>
+                <li><span class="classpick" id="Barbarian">Barbarian</span></li>
+                <li><span class="classpick" id="Bard">Bard</span></li>
+                <li><span class="classpick" id="Cleric">Cleric</span></li>
+            </ul>
+            <ul>
+                <li><span class="classpick" id="Druid">Druid</span></li>
+                <li><span class="classpick" id="Fighter">Fighter</span></li>
+                <li><span class="classpick" id="Monk">Monk</span></li>
+            </ul>
+            <ul>
+                <li><span class="classpick" id="Paladin">Paladin</span></li>
+                <li><span class="classpick" id="Ranger">Ranger</span></li>
+                <li><span class="classpick" id="Rogue">Rogue</span></li>
+            </ul>
+            <ul>
+                <li><span class="classpick" id="Wizard">Wizard</span></li>
+                <li><span class="classpick" id="Sorcerer">Sorcerer</span></li>
+                <li><span class="classpick" id="ChooseClass">Choose for me</span></li>
+            </ul>
+               
+               
+            <div class="hide chosenclass Barbarian">
+                <h2>Barbarian</h2>
+                <p>The barbarian is a brutal berserker from beyond the edge of civilized lands.</p>
+            </div>
+            <div class="hide chosenclass Bard">
+                <h2>Bard</h2>
+                <p>The bard uses skill and spell alike to bolster his allies, confound his enemies, and build upon his fame.</p>
+            </div>
+            <div class="hide chosenclass Cleric">
+                <h2>Cleric</h2>
+                <p>A devout follower of a deity, the cleric can heal wounds, raise the dead, and call down the wrath of the gods.</p>
+            </div>
+            <div class="hide chosenclass Druid">
+                <h2>Druid</h2>
+                <p>The druid is a worshiper of all things natural—a spellcaster, a friend to animals, and a skilled shapechanger.</p>
+            </div>
+            <div class="hide chosenclass Fighter">
+                <h2>Fighter</h2> 
+                <p>Brave and stalwart, the fighter is a master of all manner of arms and armor.</p>
+            </div>
+            <div class="hide chosenclass Monk">
+                <h2>Monk</h2>
+                <p>A student of martial arts, the monk trains his body to be his greatest weapon and defense.</p>
+            </div>
+            <div class="hide chosenclass Paladin">
+                <h2>Paladin</h2>
+                <p>The paladin is the knight in shining armor, a devoted follower of law and good.</p>
+            </div>
+            <div class="hide chosenclass Ranger">
+                <h2>Ranger</h2>
+                <p>A tracker and hunter, the ranger is a creature of the wild and of tracking down his favored foes.</p>
+            </div>
+            <div class="hide chosenclass Rogue">
+                <h2>Rogue</h2>
+                <p>The rogue is a thief and a scout, an opportunist capable of delivering brutal strikes against unwary foes.</p>
+            </div>
+            <div class="hide chosenclass Sorcerer">
+                <h2>Sorcerer</h2>
+                <p>The spellcasting sorcerer is born with an innate knack for magic and has strange, eldritch powers.</p>
+            </div>
+            <div class="hide chosenclass Wizard">
+                <h2>Wizard</h2>
+                <p>The wizard masters magic through constant study that gives him incredible magical power.</p>
+            </div>
+
+            <div id="ConfirmClass">
+                <p><span class="btn" id="SelectClass">Confirm</span><span class="btn" id="ResetClass">Reset</span></p>
+            </div>
+        </div>
+        
+        
+    <div>
+</div>
+
+</body>
+</html>
+
+
+</body>
+</html>
