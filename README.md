@@ -1,5 +1,5 @@
 # pathfinder-character-generator
-This is a Javascript-based Pathfinder character generator.
+This is a Javascript-based Pathfinder character generator. Try it out here: http://aliciasecord.github.io/pathfinder-character-generator/
 
 ####HTML
 
