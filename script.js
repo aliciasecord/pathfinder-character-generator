@@ -6,7 +6,7 @@ var Class = ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin
 
 $(document).ready(function() {
     /* At the start, the .character div should be hidden */
-    $('.hide, #character, #stats, #guided, #again').hide();
+    $('.hide, #character, #stats, #guided, #again, #rolltype').hide();
     
     /*If they click "Guided Selection" show .character and .level div */
     $('#guide, #chooseagain').click(function() {
@@ -320,7 +320,7 @@ $(document).ready(function() {
         $('#characterclass').append(PCclass);
         /* Then hide the choices and show the character description */
         $('#choose').fadeOut('fast');
-        $('.character').fadeIn('fast');
+        $('#character').fadeIn('fast');
         
         /* Also show options to start over or move on */
         $('#again').fadeIn('fast');
@@ -328,13 +328,17 @@ $(document).ready(function() {
     
     /* Roll Stats */
     $('#charnext').click(function() {
-        $('#again').fadeOut('fast');
+        $('#tryagain, #chooseagain').fadeOut('fast');
+        $('##rolltype').fadeIn('fast');
+    });
+    
+    /* Function for rolling stats */
+    var stats = [10, 11, 12, 13, 14, 15]
+    $('#standard').click(function() {});
+    $('#heroic').click(function() {});
+    
+    /* Either way, show stats */
+    $('#standard, #heroic').click(function() {
         $('#stats').fadeIn('fast');
-        /* Function for rolling stats */
-        var d6 = Math.floor(Math.random() * 6) + 1
-        var statroll = ["d6, d6, d6, d6"];
-        var statroll = statroll.sort();
-        var statroll = 
-        stats = sixstats.sort();
     });
 });
