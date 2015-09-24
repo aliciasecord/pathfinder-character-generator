@@ -40,6 +40,7 @@ var stat = function (){
     s = x[1] + x[2] + x[3]
     return s
     }
+
 var str = stat;
 var dex = stat;
 var int = stat;
