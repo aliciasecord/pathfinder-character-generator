@@ -54,6 +54,12 @@ var stat = function (){
     s = x[1] + x[2] + x[3]
     return s
     }
+var str = stat;
+var dex = stat;
+var int = stat;
+var con = stat;
+var wis = stat;
+var cha = stat;
 
 var herostat = function (){
     x = dice.d6.times(2)
@@ -61,6 +67,13 @@ var herostat = function (){
     s = x[0] + x[1] + 6
     return s
     }
+    
+var herostr = herostat;
+var herodex = herostat;
+var heroint = herostat;
+var herocon = herostat;
+var herowis = herostat;
+var herocha = herostat;
     
 /* Function for getting stat modifier */
 function modifier(s) {
@@ -350,25 +363,25 @@ $(document).ready(function() {
         $('#rolltype').fadeIn('fast');
         /* Function for rolling stats */
     });
-    
+        
     $('#standard').click(function(){
-        $('#str').text(stat);
-        $('#dex').text(stat);
-        $('#con').text(stat);
-        $('#int').text(stat);
-        $('#wis').text(stat);
-        $('#cha').text(stat);
+        $('#str').text(str);
+        $('#dex').text(dex);
+        $('#int').text(int);
+        $('#con').text(con);
+        $('#wis').text(wis);
+        $('#cha').text(cha);
         $('#rolltype').hide();
         $('#stats').fadeIn('fast');
     });
-        
+    
     $('#heroic').click(function(){
-        $('#str').text(herostat);
-        $('#dex').text(herostat);
-        $('#int').text(herostat);
-        $('#con').text(herostat);
-        $('#wis').text(herostat);
-        $('#cha').text(herostat);
+        $('#str').text(herostr);
+        $('#dex').text(herodex);
+        $('#int').text(heroint);
+        $('#con').text(herocon);
+        $('#wis').text(herowis);
+        $('#cha').text(herocha);
         $('#rolltype').hide();
         $('#stats').fadeIn('fast');
     });
