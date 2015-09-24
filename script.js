@@ -34,27 +34,12 @@ var dice = {
 
 var stat = function (){
     var x = dice.d6.times(4)
-    // Reroll ones
-    if(x[0] == 1) {
-        x[0].replace(dice.d6); 
-    }
-    if(x[1] == 1) {
-        x[1].replace(dice.d6);
-    }
-    if(x[2] == 1) {
-        x[2].replace(dice.d6);
-    }
-    if(x[3] == 1) {
-        x[3].replace(dice.d6);
-    }
-    
     // Sort smallest to largest
     x = x.sort()
     // Use the three largest
     s = x[1] + x[2] + x[3]
     return s
     }
-
 var str = stat;
 var dex = stat;
 var int = stat;
@@ -92,6 +77,9 @@ function modifier(stat) {
     else { mod = 5 }
     return mod
     }
+
+var hstrmod = modifier(herostr);
+var hdexmod = modifier(herodex);
 
 
 $(document).ready(function() {
