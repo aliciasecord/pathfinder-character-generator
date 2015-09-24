@@ -1,8 +1,10 @@
 /* Array for random race selection */
 var Race = ['Dwarf', 'Elf', 'Gnome', 'Half-Elf', 'Half-Orc', 'Halfling', 'Human']
+var Race = Race[Math.floor(Math.random() * Race.length)]
 
 /* Array for random race selection */
 var Class = ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Wizard']
+var Class = Class[Math.floor(Math.random() * Class.length)]
 
 /* Functions for rolling any die */
 function makeDie(sides) {
@@ -41,27 +43,12 @@ var stat = function (){
     return s
     }
 
-var str = stat;
-var dex = stat;
-var int = stat;
-var con = stat;
-var wis = stat;
-var cha = stat;
-
 var herostat = function (){
     x = dice.d6.times(2)
     x = x.sort()
     s = x[0] + x[1] + 6
     return s
     }
-    
-var herostr = herostat;
-var herodex = herostat;
-var heroint = herostat;
-var herocon = herostat;
-var herowis = herostat;
-var herocha = herostat;
-
 
     
 /* Function for getting stat modifier */
@@ -78,10 +65,6 @@ function modifier(stat) {
     else { mod = 5 }
     return mod
     }
-
-var hstrmod = modifier(herostr);
-var hdexmod = modifier(herodex);
-
 
 $(document).ready(function() {
     /* At the start, the .character div should be hidden */
@@ -105,7 +88,7 @@ $(document).ready(function() {
     $('#level span').click(function() {
         var LevelSelection = $("#selectlevel option:selected").text();
         $('#characterlevel').append('Level ' + LevelSelection); 
-        $('#race').fadeIn('fast');
+        $('#race, #character').fadeIn('fast');
         $('#level, #ConfirmRace').hide();
     });
     
@@ -153,7 +136,7 @@ $(document).ready(function() {
     });
     
     $('#ChooseRace').click(function() {
-        var PCrace = Race[Math.floor(Math.random() * Race.length)];
+        var PCrace = Race;
         $('#characterrace').append(PCrace);
         $('#race').hide('fast');
         $('#class').fadeIn('fast');
@@ -243,10 +226,10 @@ $(document).ready(function() {
     });
     
     $('#ChooseClass').click(function() {
-        var PCclass = Class
+        var PCclass = Class;
         $('#characterclass').append(PCclass);
         $('#class').hide();
-        $('.character').fadeIn('fast');
+        $('#again').fadeIn('fast');
     });
     
     $('.classpick').click(function() {
@@ -256,7 +239,7 @@ $(document).ready(function() {
     
     $('#SelectClass').click(function() {
         $('#class').hide();
-        $('#character, #again').fadeIn('fast');
+        $('#again').fadeIn('fast');
     });
     
     $('#ResetClass').click(function() {
@@ -277,11 +260,11 @@ $(document).ready(function() {
         $('#characterlevel').append('Level ' + Level);
         
         /*Choose race*/
-        var PCrace = Race[Math.floor(Math.random() * Race.length)];
+        var PCrace = Race;
         $('#characterrace').append(PCrace);
         
         /*Choose Class*/
-        var PCclass = Class[Math.floor(Math.random() * Class.length)];
+        var PCclass = Class;
         $('#characterclass').append(PCclass); 
         /* Then hide the choices and show the character description */
         $('#choose').hide();
@@ -304,11 +287,24 @@ $(document).ready(function() {
     });
         
     $('#standard').click(function(){
+        var stats = [10, 10, 12, 14, 16, 18]
+        
+        var str = stats[5];
         $('#str').text(str);
+        
+        var dex = stats[4];
         $('#dex').text(dex);
+        
+        var int = stats[3];
         $('#int').text(int);
+        
+        var con = stats[2]
         $('#con').text(con);
+        
+        var wis = stats[1];
         $('#wis').text(wis);
+        
+        var cha = stats[0]
         $('#cha').text(cha);
 
         $('#rolltype').hide();
@@ -316,18 +312,25 @@ $(document).ready(function() {
     });
     
     $('#heroic').click(function(){
-        $('#str').text(herostr);
+        var herostats = [10, 12, 14, 16, 16, 18]
+        $('#str').text(herostat);
         $('#strmod').text(hstrmod)
-        $('#dex').text(herodex);
+        $('#dex').text(herostat);
         $('#dexmod').text(modifier(12))
-        $('#int').text(heroint);
+        $('#int').text(herostat);
         $('#inmod').text(modifier(12))
-        $('#con').text(herocon);
+        $('#con').text(herostat);
         $('#conmod').text(modifier(12))
-        $('#wis').text(herowis);
-        $('#cha').text(herocha);
+        $('#wis').text(herostat);
+        $('#cha').text(herostat);
 
         $('#rolltype').hide();
         $('#stats').fadeIn('fast');
     });
+    
+    
+    /*Testing my variables*/
+    $('#t1').text(PCLevel);
+    $('#t2').text(PCRace);
+    $('#t3').text(PCClass);
 });
