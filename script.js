@@ -85,7 +85,7 @@ $(document).ready(function() {
     $('#guide, #chooseagain').click(function() {
         $('#character, #race, #class').hide();
         $('#guided').fadeIn('fast');
-        $('#choose, #again').fadeOut('fast');
+        $('#choose, #again').hide('fast');
     });
     
     /*Guided Path*/
@@ -99,9 +99,8 @@ $(document).ready(function() {
     $('#level span').click(function() {
         var LevelSelection = $("#selectlevel option:selected").text();
         $('#characterlevel').append('Level ' + LevelSelection); 
-        $('#level').fadeOut('fast');
         $('#race').fadeIn('fast');
-        $('#ConfirmRace').hide();
+        $('#level, #ConfirmRace').hide();
     });
     
     /*Select Race*/
@@ -171,26 +170,22 @@ $(document).ready(function() {
 	        $('span.Human').fadeIn('fast');
             }
         $('#characterrace').append(PCrace);
-        $('#race').fadeOut('fast');
+        $('#race').hide('fast');
         $('#class').fadeIn('fast');
     });
     
     $('.racepick').click(function() {
-        $('#race ul').fadeOut('fast');
-        $('#race img').fadeOut('fast');
-        $('#race h3').fadeOut('fast');
+        $('#race ul, #race img, #race h3').hide();
         $('#ConfirmRace').fadeIn('fast');
     });
     
     $('#SelectRace').click(function() {
-        $('#race').fadeOut('fast');
+        $('#race, #ConfirmClass').hide();
         $('#class').fadeIn('fast');
-        $('#ConfirmClass').hide();
     });
     
     $('#ResetRace').click(function() {
-        $('.chosenrace, #ConfirmRace').fadeOut('fast');
-        $('#ConfirmRace').fadeOut('fast');
+        $('.chosenrace, #ConfirmRace').hide();
         $('#race ul, #race img, #race h3').fadeIn('fast');
         $('#characterrace').empty();
     });
@@ -298,22 +293,22 @@ $(document).ready(function() {
 	        $('span.Sorcerer').fadeIn('fast');
             }
         $('#characterclass').append(PCclass);
-        $('#class').fadeOut('fast');
+        $('#class').hide();
         $('.character').fadeIn('fast');
     });
     
     $('.classpick').click(function() {
-        $('#class ul, #class img, #class h3').fadeOut('fast');
+        $('#class ul, #class img, #class h3').hide();
         $('#ConfirmClass').fadeIn('fast');
     });
     
     $('#SelectClass').click(function() {
-        $('#class').fadeOut('fast');
+        $('#class').hide();
         $('#character, #again').fadeIn('fast');
     });
     
     $('#ResetClass').click(function() {
-        $('.chosenclass, #ConfirmClass').fadeOut('fast');
+        $('.chosenclass, #ConfirmClass').hide();
         $('#class ul, #class img, #class h3').fadeIn('fast');
         $('#characterclass').empty();
     });
@@ -329,69 +324,15 @@ $(document).ready(function() {
         $('#characterlevel').show();
         $('#characterlevel').append('Level ' + Level);
         
-        /*Chosse race*/
+        /*Choose race*/
         var PCrace = Race[Math.floor(Math.random() * Race.length)];
-        if(PCrace == 'Dwarf') {
-    	    $('span.Dwarf').fadeIn('fast');
-    	    }
-        else if (PCrace == 'Elf') {
-	        $('span.Elf').fadeIn('fast');
-            }
-        else if (PCrace == 'Gnome') {
-	        $('span.Gnome').fadeIn('fast');
-            }
-        else if (PCrace == 'Halfling') {
-	        $('span.Halfling').fadeIn('fast');
-            }
-        else if (PCrace == 'Half-Elf') {
-	        $('span.Half-Elf').fadeIn('fast');
-            }
-        else if (PCrace == 'Half-Orc') {
-	        $('span.Half-Orc').fadeIn('fast');
-            }
-        else {
-	        $('span.Human').fadeIn('fast');
-            }
         $('#characterrace').append(PCrace);
         
         /*Choose Class*/
         var PCclass = Class[Math.floor(Math.random() * Class.length)];
-        if(PCclass == 'Barbarian') {
-    	    $('span.Barbarian').fadeIn('fast');
-    	    }
-        else if (PCclass == 'Bard') {
-	        $('span.Bard').fadeIn('fast');
-            }
-        else if (PCclass == 'Cleric') {
-	        $('span.Cleric').fadeIn('fast');
-            }
-        else if (PCclass == 'Druid') {
-	        $('span.Druid').fadeIn('fast');
-            }
-        else if (PCclass == 'Fighter') {
-	        $('span.Fighter').fadeIn('fast');
-            }
-        else if (PCclass == 'Monk') {
-	        $('span.Monk').fadeIn('fast');
-            }
-        else if (PCclass == 'Paladin') {
-	        $('span.Paladin').fadeIn('fast');
-            }
-        else if (PCclass == 'Ranger') {
-	        $('span.Ranger').fadeIn('fast');
-            }
-        else if (PCclass == 'Rogue') {
-	        $('span.Rogue').fadeIn('fast');
-            }
-        else if (PCclass == 'Wizard') {
-	        $('span.Wizard').fadeIn('fast');
-            }
-        else {
-	        $('span.Sorcerer').fadeIn('fast');
-            }
         $('#characterclass').append(PCclass); 
         /* Then hide the choices and show the character description */
-        $('#choose').fadeOut('fast');
+        $('#choose').hide();
         $('#character').fadeIn('fast');
         
         /* Also show options to start over or move on */
@@ -405,7 +346,7 @@ $(document).ready(function() {
     
     /* Roll Stats */
     $('#charnext').click(function() {
-        $('#again').fadeOut('fast');
+        $('#again').hide();
         $('#rolltype').fadeIn('fast');
         /* Function for rolling stats */
     });
@@ -417,7 +358,7 @@ $(document).ready(function() {
         $('#int').text(stat);
         $('#wis').text(stat);
         $('#cha').text(stat);
-        $('#rolltype').fadeOut('fast');
+        $('#rolltype').hide();
         $('#stats').fadeIn('fast');
     });
         
@@ -428,7 +369,7 @@ $(document).ready(function() {
         $('#con').text(herostat);
         $('#wis').text(herostat);
         $('#cha').text(herostat);
-        $('#rolltype').fadeOut('fast');
+        $('#rolltype').hide();
         $('#stats').fadeIn('fast');
     });
 });
