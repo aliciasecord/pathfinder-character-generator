@@ -54,6 +54,7 @@ var stat = function (){
     s = x[1] + x[2] + x[3]
     return s
     }
+
 var str = stat;
 var dex = stat;
 var int = stat;
@@ -91,9 +92,6 @@ function modifier(stat) {
     else { mod = 5 }
     return mod
     }
-
-var hstrmod = modifier(herostr);
-var hdexmod = modifier(herodex);
 
 
 $(document).ready(function() {
