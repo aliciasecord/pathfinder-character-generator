@@ -74,21 +74,27 @@ var heroint = herostat;
 var herocon = herostat;
 var herowis = herostat;
 var herocha = herostat;
+
+
     
 /* Function for getting stat modifier */
-function modifier(s) {
-    if (s < 7) { mod = -6 }
-    else if (s == 7) { mod = -4 }
-    else if (s == 8) { mod = -2 }
-    else if (s == 9) { mod = -1 }
-    else if (s == 10 || s == 11) { mod = 0 }
-    else if (s == 12 || s == 13) { mod = 1 }
-    else if (s == 14 || s == 15) { mod = 2 }
-    else if (s == 16 || s == 17) { mod = 3 }
-    else if (s == 18 || s == 19) { mod = 4 } 
+function modifier(stat) {
+    if (stat < 7) { mod = -6 }
+    else if (stat == 7) { mod = -4 }
+    else if (stat == 8) { mod = -2 }
+    else if (stat == 9) { mod = -1 }
+    else if (stat == 10 || stat == 11) { mod = 0 }
+    else if (stat == 12 || stat == 13) { mod = 1 }
+    else if (stat == 14 || stat == 15) { mod = 2 }
+    else if (stat == 16 || stat == 17) { mod = 3 }
+    else if (stat == 18 || stat == 19) { mod = 4 } 
     else { mod = 5 }
     return mod
     }
+
+var hstrmod = modifier(herostr);
+var hdexmod = modifier(herodex);
+
 
 $(document).ready(function() {
     /* At the start, the .character div should be hidden */
@@ -161,27 +167,6 @@ $(document).ready(function() {
     
     $('#ChooseRace').click(function() {
         var PCrace = Race[Math.floor(Math.random() * Race.length)];
-        if(PCrace == 'Dwarf') {
-    	    $('span.Dwarf').fadeIn('fast');
-    	    }
-        else if (PCrace == 'Elf') {
-	        $('span.Elf').fadeIn('fast');
-            }
-        else if (PCrace == 'Gnome') {
-	        $('span.Gnome').fadeIn('fast');
-            }
-        else if (PCrace == 'Halfling') {
-	        $('span.Halfling').fadeIn('fast');
-            }
-        else if (PCrace == 'Half-Elf') {
-	        $('span.Half-Elf').fadeIn('fast');
-            }
-        else if (PCrace == 'Half-Orc') {
-	        $('span.Half-Orc').fadeIn('fast'); 
-            }
-        else {
-	        $('span.Human').fadeIn('fast');
-            }
         $('#characterrace').append(PCrace);
         $('#race').hide('fast');
         $('#class').fadeIn('fast');
@@ -272,39 +257,6 @@ $(document).ready(function() {
     
     $('#ChooseClass').click(function() {
         var PCclass = Class
-        if(PCclass == 'Barbarian') {
-    	    $('span.Barbarian').fadeIn('fast');
-    	    }
-        else if (PCclass == 'Bard') {
-	        $('span.Bard').fadeIn('fast');
-            }
-        else if (PCclass == 'Cleric') {
-	        $('span.Cleric').fadeIn('fast');
-            }
-        else if (PCclass == 'Druid') {
-	        $('span.Druid').fadeIn('fast');
-            }
-        else if (PCclass == 'Fighter') {
-	        $('span.Fighter').fadeIn('fast');
-            }
-        else if (PCclass == 'Monk') {
-	        $('span.Monk').fadeIn('fast');
-            }
-        else if (PCclass == 'Paladin') {
-	        $('span.Paladin').fadeIn('fast');
-            }
-        else if (PCclass == 'Ranger') {
-	        $('span.Ranger').fadeIn('fast');
-            }
-        else if (PCclass == 'Rogue') {
-	        $('span.Rogue').fadeIn('fast');
-            }
-        else if (PCclass == 'Wizard') {
-	        $('span.Wizard').fadeIn('fast');
-            }
-        else {
-	        $('span.Sorcerer').fadeIn('fast');
-            }
         $('#characterclass').append(PCclass);
         $('#class').hide();
         $('.character').fadeIn('fast');
@@ -371,17 +323,23 @@ $(document).ready(function() {
         $('#con').text(con);
         $('#wis').text(wis);
         $('#cha').text(cha);
+
         $('#rolltype').hide();
         $('#stats').fadeIn('fast');
     });
     
     $('#heroic').click(function(){
         $('#str').text(herostr);
+        $('#strmod').text(hstrmod)
         $('#dex').text(herodex);
+        $('#dexmod').text(modifier(12))
         $('#int').text(heroint);
+        $('#inmod').text(modifier(12))
         $('#con').text(herocon);
+        $('#conmod').text(modifier(12))
         $('#wis').text(herowis);
         $('#cha').text(herocha);
+
         $('#rolltype').hide();
         $('#stats').fadeIn('fast');
     });
