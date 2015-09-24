@@ -4,6 +4,79 @@ var Race = ['Dwarf', 'Elf', 'Gnome', 'Half-Elf', 'Half-Orc', 'Halfling', 'Human'
 /* Array for random race selection */
 var Class = ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Wizard']
 
+/* Functions for rolling any die */
+function makeDie(sides) {
+  var die = function () {
+    return 1 + Math.random() * sides | 0;
+  };
+
+  die.times = function (count) {
+    var rolls = [];
+    for(var i = 0 ; i < count ; i++) {
+      rolls.push(this());
+    }
+    return rolls;
+  };
+
+  return die;
+}
+
+var dice = {
+  d4: makeDie(4),
+  d6: makeDie(6),
+  d8: makeDie(8),
+  d10: makeDie(10),
+  d12: makeDie(12),
+  d20: makeDie(20),
+};
+
+/* Functions for rolling stats */
+
+var stat = function (){
+    var x = dice.d6.times(4)
+    // Reroll ones
+    if(x[0] == 1) {
+        x[0].replace(dice.d6); 
+    }
+    if(x[1] == 1) {
+        x[1].replace(dice.d6);
+    }
+    if(x[2] == 1) {
+        x[2].replace(dice.d6);
+    }
+    if(x[3] == 1) {
+        x[3].replace(dice.d6);
+    }
+    
+    // Sort smallest to largest
+    x = x.sort()
+    // Use the three largest
+    s = x[1] + x[2] + x[3]
+    return s
+    }
+
+var herostat = function (){
+    x = dice.d6.times(2)
+    x = x.sort()
+    s = x[0] + x[1] + 6
+    return s
+    }
+    
+/* Function for getting stat modifier */
+function modifier(s) {
+    if (s < 7) { mod = -6 }
+    else if (s == 7) { mod = -4 }
+    else if (s == 8) { mod = -2 }
+    else if (s == 9) { mod = -1 }
+    else if (s == 10 || s == 11) { mod = 0 }
+    else if (s == 12 || s == 13) { mod = 1 }
+    else if (s == 14 || s == 15) { mod = 2 }
+    else if (s == 16 || s == 17) { mod = 3 }
+    else if (s == 18 || s == 19) { mod = 4 } 
+    else { mod = 5 }
+    return mod
+    }
+
 $(document).ready(function() {
     /* At the start, the .character div should be hidden */
     $('.hide, #character, #stats, #guided, #again, #rolltype').hide();
@@ -236,8 +309,7 @@ $(document).ready(function() {
     
     $('#SelectClass').click(function() {
         $('#class').fadeOut('fast');
-        $('.character').fadeIn('fast');
-        $('#again').fadeIn('fast');
+        $('#character, #again').fadeIn('fast');
     });
     
     $('#ResetClass').click(function() {
@@ -317,7 +389,7 @@ $(document).ready(function() {
         else {
 	        $('span.Sorcerer').fadeIn('fast');
             }
-        $('#characterclass').append(PCclass);
+        $('#characterclass').append(PCclass); 
         /* Then hide the choices and show the character description */
         $('#choose').fadeOut('fast');
         $('#character').fadeIn('fast');
@@ -326,19 +398,37 @@ $(document).ready(function() {
         $('#again').fadeIn('fast');
     });
     
+    /* Set selections to variables to call later */
+    var PCClass = $("#characterclass").text();
+    var PCRace = $("#characterrace").text();
+    var PCLevel = $("#characterlevel").text();
+    
     /* Roll Stats */
     $('#charnext').click(function() {
-        $('#tryagain, #chooseagain').fadeOut('fast');
-        $('##rolltype').fadeIn('fast');
+        $('#again').fadeOut('fast');
+        $('#rolltype').fadeIn('fast');
+        /* Function for rolling stats */
     });
     
-    /* Function for rolling stats */
-    var stats = [10, 11, 12, 13, 14, 15]
-    $('#standard').click(function() {});
-    $('#heroic').click(function() {});
-    
-    /* Either way, show stats */
-    $('#standard, #heroic').click(function() {
+    $('#standard').click(function(){
+        $('#str').text(stat);
+        $('#dex').text(stat);
+        $('#con').text(stat);
+        $('#int').text(stat);
+        $('#wis').text(stat);
+        $('#cha').text(stat);
+        $('#rolltype').fadeOut('fast');
+        $('#stats').fadeIn('fast');
+    });
+        
+    $('#heroic').click(function(){
+        $('#str').text(herostat);
+        $('#dex').text(herostat);
+        $('#int').text(herostat);
+        $('#con').text(herostat);
+        $('#wis').text(herostat);
+        $('#cha').text(herostat);
+        $('#rolltype').fadeOut('fast');
         $('#stats').fadeIn('fast');
     });
 });
