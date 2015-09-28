@@ -195,7 +195,7 @@ $(document).ready(function() {
     $('#random, #tryagain').click(function() {
         
         /*Choose level*/
-        var PCLevel = Math.floor(Math.random() * 20) + 1
+        var PCLevel = (Math.floor(Math.random() * 20) + 1);
         $('#characterlevel').show();
         $('#characterlevel').append('Level ' + PCLevel);
         
