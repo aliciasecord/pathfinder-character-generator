@@ -21,7 +21,9 @@ $(document).ready(function() {
     
     /* But if it's the second time through with the Try again buttons need to clear the character fields first  */
     $('#tryagain, #chooseagain').click(function () {
-        $('#characterlevel, #characterrace, #characterclass').empty();
+        $('#characterlevel).empty();
+        $('#characterrace').empty();
+        $('#characterclass').empty();
     });
     
     /*Select level and append to Character*/
