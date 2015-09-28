@@ -247,10 +247,22 @@ $(document).ready(function() {
         /* Function for rolling stats */
     });
     
-    $('#classic, #standard, #heroic, #dicepool, #pointbuy').click(function() {
+    $('#classic, #standard, #heroic).click(function() {
         $('#stats').fadeIn('fast');
         $('#rolltype').hide();
     });
     
     var stats = [10, 12, 14, 14, 16, 20];
+    
+    /* Check to variables to call later */
+    var PCClass = $("#characterclass").text();
+    var PCRace = $("#characterrace").text();
+    var PCLevel = $("#characterlevel").text();
+    var PCLevel = PCLevel.replace('Level ','');
+    
+    $('#test').show();
+    $('#t1').text(PCLevel);
+    $('#t2').text(PCRace);
+    $('#t3').text(PCClass);
+    $('#t4').text('test');
 });
