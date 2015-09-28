@@ -26,8 +26,8 @@ $(document).ready(function() {
     
     /*Select level and append to Character*/
     $('#level span').click(function() {
-        PCLevel = $("#selectlevel option:selected").text();
-        $('#characterlevel').append('Level ' + PCLevel); 
+        PClevel = $("#selectlevel option:selected").text();
+        $('#characterlevel').append('Level ' + PClevel); 
         $('#race, #character').fadeIn('fast');
         $('#level, #ConfirmRace').hide();
     });
@@ -195,9 +195,9 @@ $(document).ready(function() {
     $('#random, #tryagain').click(function() {
         
         /*Choose level*/
-        var PCLevel = (Math.floor(Math.random() * 20) + 1);
+        var PClevel = (Math.floor(Math.random() * 20) + 1);
         $('#characterlevel').show();
-        $('#characterlevel').append('Level ' + PCLevel);
+        $('#characterlevel').append('Level ' + PClevel);
         
         /*Choose race*/
         var PCrace = Race;
@@ -224,11 +224,11 @@ $(document).ready(function() {
 
 /*Starting a new Javascript & Jquery section for stats */
 /* Set Class, Race and Level variables */
+var PCLevel = $("p span#characterlevel").text();
+var PCLevel = PCLevel.replace('Level ','');
+var PCRace = $("p span#characterrace").text();
+var PCClass = $("p span#characterclass").text();
 
-
-$(document).ready(function(){
-  $('#t1').text(PCLevel);
-});
 
 /* Functions for rolling any die */
 function makeDie(sides) {
