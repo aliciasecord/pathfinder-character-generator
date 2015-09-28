@@ -240,13 +240,6 @@ $(document).ready(function() {
         $('#again').fadeIn('fast');
     });
     
-    /* Check to variables to call later */
-    $('#test').show();
-    $('#t1').text(PClevel);
-    $('#t2').text(PCrace);
-    $('#t3').text(PCclass);
-    $('#t4').text('test');
-    
     /* Roll Stats */
     $('#charnext').click(function() {
         $('#again').hide();
