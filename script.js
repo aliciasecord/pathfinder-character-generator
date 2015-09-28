@@ -246,4 +246,18 @@ $(document).ready(function() {
     $('#t2').append(PCrace);
     $('#t3').append(PCclass);
     $('#t4').append('test');
+    
+    /* Roll Stats */
+    $('#charnext').click(function() {
+        $('#again').hide();
+        $('#rolltype').fadeIn('fast');
+        /* Function for rolling stats */
+    });
+    
+    $('#classic, #standard, #heroic, #dicepool, #pointbuy').click(function() {
+        $('#stats').fadeIn('fast');
+        $('#rolltype').hide();
+    });
+    
+    var stats = [10, 12, 14, 14, 16, 20];
 });
