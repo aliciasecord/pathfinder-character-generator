@@ -254,6 +254,9 @@ $(document).ready(function() {
     
     var stats = [10, 12, 14, 14, 16, 20];
     
+    var PCClass = "Barbarian"
+    var PCRace = "Dwarf"
+    
     /* Calculate STR */
     if (PCClass == 'Barbarian' || PCClass == 'Fighter' || PCClass == 'Monk') {str = stats[5]}
     else if (PCClass == 'Paladin' || PCClass == 'Druid' || PCClass == 'Ranger') {str = stats[4]}
