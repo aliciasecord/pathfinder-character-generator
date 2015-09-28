@@ -6,32 +6,6 @@ var Race = Race[Math.floor(Math.random() * Race.length)]
 var Class = ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Wizard']
 var Class = Class[Math.floor(Math.random() * Class.length)]
 
-/* Functions for rolling any die */
-function makeDie(sides) {
-  var die = function () {
-    return 1 + Math.random() * sides | 0;
-  };
-
-  die.times = function (count) {
-    var rolls = [];
-    for(var i = 0 ; i < count ; i++) {
-      rolls.push(this());
-    }
-    return rolls;
-  };
-
-  return die;
-}
-
-var dice = {
-  d4: makeDie(4),
-  d6: makeDie(6),
-  d8: makeDie(8),
-  d10: makeDie(10),
-  d12: makeDie(12),
-  d20: makeDie(20),
-};
-
 $(document).ready(function() {
     /* At the start, the .character div should be hidden */
     $('.hide, #character, #stats, #guided, #again, #rolltype').hide();
@@ -240,65 +214,102 @@ $(document).ready(function() {
         $('#again').fadeIn('fast');
     });
     
-    /* Roll Stats */
+    /* Call for stats */
     $('#charnext').click(function() {
         $('#again').hide();
         $('#rolltype').fadeIn('fast');
         /* Function for rolling stats */
     });
-    
-    $('#classic, #standard, #heroic').click(function() {
-        $('#stats').fadeIn('fast');
-        $('#rolltype').hide();
-    });
-    
-    var stats = [10, 12, 14, 14, 16, 20];
-    
-    var PCClass = "Barbarian";
-    var PCRace = "Dwarf";
-    
-    /* Calculate STR */
+});
+
+/*Starting a new Javascript & Jquery section for stats */
+/* Set Class, Race and Level variables */
+var PCLevel = $("#characterlevel").text();
+var PCLevel = PCLevel.replace('Level ','');
+var PCRace = $("#characterrace").text();
+var PCClass = $("#characterclass").text();
+
+$(document).ready(function(){
+  $('#t1').text(PCLevel);
+});
+
+/* Functions for rolling any die */
+function makeDie(sides) {
+  var die = function () {
+    return 1 + Math.random() * sides | 0;
+  };
+
+  die.times = function (count) {
+    var rolls = [];
+    for(var i = 0 ; i < count ; i++) {
+      rolls.push(this());
+    }
+    return rolls;
+  };
+
+  return die;
+}
+
+var dice = {
+  d4: makeDie(4),
+  d6: makeDie(6),
+  d8: makeDie(8),
+  d10: makeDie(10),
+  d12: makeDie(12),
+  d20: makeDie(20),
+};
+
+/* Functions for rolling stats */
+
+/* Switches for assigning stats */
+var stats = [];
+
+  /* Assign STR */
     if (PCClass == 'Barbarian' || PCClass == 'Fighter' || PCClass == 'Monk') {str = stats[5]}
     else if (PCClass == 'Paladin' || PCClass == 'Druid' || PCClass == 'Ranger') {str = stats[4]}
     else if (PCClass == 'Bard' || PCClass == 'Cleric' || PCClass == 'Sorcerer') {str = stats[0]}
+    else {str = stats[5]}
     
-    /* Calculate DEX */
+  /* Assign DEX */
     if (PCClass == 'Rogue' || PCClass == 'Ranger') {dex = stats[5]}
     else if (PCClass == 'Bard' || PCClass == 'Wizard' || PCClass == 'Sorcerer') {dex = stats[4]}
     else if (PCClass == 'Barbarian' || PCClass == 'Fighter') {dex = stats[3]}
     else if (PCClass == 'Druid' || PCClass == 'Monk' || PCClass == 'Paladin') {dex = stats[2]}
     else if (PCClass == 'Cleric') {dex = stats[1]}
     
-    /* Calculate INT */
+  /* Assign INT */
     if (PCClass == 'Wizard') {int = stats[5]}
     else if (PCClass == 'Rogue') {int = stats[4]}
     else if (PCClass == 'Bard') {int = stats[3]}
     else if (PCClass == 'Cleric') {int = stats[2]}
     else if (PCClass == 'Barbarian' || PCClass == 'Fighter' || PCClass == 'Monk' || PCClass == 'Paladin' || PCClass == 'Druid' || PCClass == 'Sorcerer') {int = stats[1]}
     
-    /* Calculate WIS */
+  /* Assign WIS */
     if (PCClass == 'Druid' || PCClass == 'Cleric') {wis = stats[5]}
     else if (PCClass == 'Monk' || PCClass == 'Ranger') {wis = stats[3]}
     else if (PCClass == 'Barbarian' || PCClass == 'Fighter') {wis = stats[2]}
     else if (PCClass == 'Rogue' || PCClass == 'Barbarian' || PCClass == 'Fighter' || PCClass == 'Sorcerer') {wis = stats[2]}
     else if (PCClass == 'Bard') {wis = stats[1]}
     else if (PCClass == 'Paladin') {wis = stats[0]}
+    else {wis = stats[1]}
     
-    /* Calculate CON */
+  /* Assign CON */
     if (PCClass == 'Fighter' || PCClass == 'Barbarian' || PCClass == 'Monk') {con = stats[4]}
     else if (PCClass == 'Rogue' || PCClass == 'Cleric' || PCClass == 'Druid' || PCClass == 'Paladin') {con = stats[4]}
     else if (PCClass == 'Bard' || PCClass == 'Ranger' || PCClass == 'Sorcerer') {con = stats[3]}
     
-    /* Calculate CHA*/
+  /* Assign CHA*/
     if (PCClass == 'Bard' || PCClass == 'Sorcerer' || PCClass == 'Paladin') {cha = stats[5]}
     else if (PCClass == 'Cleric') {cha = stats[4]}
     else if (PCClass == PCClass == 'Rogue' || PCClass == 'Fighter' || PCClass == 'Monk' || 'Druid' || PCClass == 'Barbarian' || PCClass == 'Ranger') {cha = stats[0]}
+    else {cha = stats[2]}
 
 /* This part isn't built yet     
     $('#dicepool').click(function(){});
     $('#pointbuy').click(function(){});
 */
 
+  /* Apply racial modifiers */
     if (PCRace == 'Halfling' || PCRace == 'Gnome') {str = str - 2}
     if (PCRace == 'Elf' || PCRace == 'Halfling') {dex = dex + 2}
     if (PCRace == 'Elf') {int = int + 2}
@@ -319,6 +330,19 @@ $(document).ready(function() {
         else if (PCClass == 'Bard' || PCClass == 'Paladin' || PCClass == 'Sorcerer')
             {cha = cha + 2}
         } 
+
+var modstr = Math.floor((str - 10)/2);
+var moddex = Math.floor((dex - 10)/2);
+var modint = Math.floor((int - 10)/2);
+var modcon = Math.floor((con - 10)/2);
+var modwis = Math.floor((wis - 10)/2);
+var modcha = Math.floor((cha - 10)/2);
+
+$(document).ready(function() {
+    $('#classic, #standard, #heroic').click(function() {
+        $('#stats').fadeIn('fast');
+        $('#rolltype').hide();
+    });
     
     $('#str').append(str); 
     $('#dex').append(dex);
@@ -326,14 +350,6 @@ $(document).ready(function() {
     $('#con').append(con);
     $('#wis').append(wis);
     $('#cha').append(cha);
-    
-    var modstr = Math.floor((str - 10)/2);
-    var moddex = Math.floor((dex - 10)/2);
-    var modint = Math.floor((int - 10)/2);
-    var modcon = Math.floor((con - 10)/2);
-    var modwis = Math.floor((wis - 10)/2);
-    var modcha = Math.floor((cha - 10)/2);
-    
     
     $('#modstr').append(modstr); 
     $('#moddex').append(moddex);
