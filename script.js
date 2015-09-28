@@ -244,4 +244,5 @@ $(document).ready(function() {
     $('#t1').append(PClevel);
     $('#t2').append(PCrace);
     $('#t3').append(PCclass);
+    $('#t4').append('test');
 });
