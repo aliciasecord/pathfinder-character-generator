@@ -241,6 +241,7 @@ $(document).ready(function() {
     });
     
     /* Check to variables to call later */
+    $('#test').show();
     $('#t1').append(PClevel);
     $('#t2').append(PCrace);
     $('#t3').append(PCclass);
