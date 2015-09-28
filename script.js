@@ -256,8 +256,6 @@ $(document).ready(function() {
     
     /* Check to variables to call later */
     
-    $('#t1').text(PClevel);
-    $('#t2').text(PCrace);
-    $('#t3').text(PCclass);
+    
     $('#t4').text('test');
 });
