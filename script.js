@@ -26,7 +26,7 @@ $(document).ready(function() {
     
     /*Select level and append to Character*/
     $('#level span').click(function() {
-        PClevel = $("#selectlevel option:selected").text();
+        var PClevel = $("#selectlevel option:selected").text();
         $('#characterlevel').append('Level ' + PClevel); 
         $('#race, #character').fadeIn('fast');
         $('#level, #ConfirmRace').hide();
@@ -195,7 +195,7 @@ $(document).ready(function() {
     $('#random, #tryagain').click(function() {
         
         /*Choose level*/
-        var PClevel = (Math.floor(Math.random() * 20) + 1);
+        var PClevel = Math.floor(Math.random() * 20) + 1
         $('#characterlevel').show();
         $('#characterlevel').append('Level ' + PClevel);
         
@@ -213,15 +213,7 @@ $(document).ready(function() {
         /* Also show options to start over or move on */
         $('#again').fadeIn('fast');
     });
-    
-    /* Call for stats */
-    $('#charnext').click(function() {
-        $('#again').hide();
-        $('#rolltype').fadeIn('fast');
-        /* Function for rolling stats */
-    });
 });
-
 /*Starting a new Javascript & Jquery section for stats */
 /* Set Class, Race and Level variables */
 var PCLevel = $("p span#characterlevel").text();
