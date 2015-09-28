@@ -247,7 +247,7 @@ $(document).ready(function() {
         /* Function for rolling stats */
     });
     
-    $('#classic, #standard, #heroic).click(function() {
+    $('#classic, #standard, #heroic').click(function() {
         $('#stats').fadeIn('fast');
         $('#rolltype').hide();
     });
