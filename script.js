@@ -242,10 +242,10 @@ $(document).ready(function() {
     
     /* Check to variables to call later */
     $('#test').show();
-    $('#t1').append(PClevel);
-    $('#t2').append(PCrace);
-    $('#t3').append(PCclass);
-    $('#t4').append('test');
+    $('#t1').text(PClevel);
+    $('#t2').text(PCrace);
+    $('#t3').text(PCclass);
+    $('#t4').text('test');
     
     /* Roll Stats */
     $('#charnext').click(function() {
