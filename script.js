@@ -52,8 +52,8 @@ $(document).ready(function() {
     
     /*Select level and append to Character*/
     $('#level span').click(function() {
-        var LevelSelection = $("#selectlevel option:selected").text();
-        $('#characterlevel').append('Level ' + LevelSelection); 
+        var PClevel = $("#selectlevel option:selected").text();
+        $('#characterlevel').append('Level ' + PClevel); 
         $('#race, #character').fadeIn('fast');
         $('#level, #ConfirmRace').hide();
     });
@@ -221,9 +221,9 @@ $(document).ready(function() {
     $('#random, #tryagain').click(function() {
         
         /*Choose level*/
-        var Level = Math.floor(Math.random() * 20) + 1
+        var PClevel = Math.floor(Math.random() * 20) + 1
         $('#characterlevel').show();
-        $('#characterlevel').append('Level ' + Level);
+        $('#characterlevel').append('Level ' + PClevel);
         
         /*Choose race*/
         var PCrace = Race;
@@ -239,4 +239,9 @@ $(document).ready(function() {
         /* Also show options to start over or move on */
         $('#again').fadeIn('fast');
     });
+    
+    /* Check to variables to call later */
+    $('#t1').append(PClevel);
+    $('#t2').append(PCrace);
+    $('#t3').append(PCclass);
 });
