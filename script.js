@@ -224,10 +224,10 @@ $(document).ready(function() {
 
 /*Starting a new Javascript & Jquery section for stats */
 /* Set Class, Race and Level variables */
-var PCLevel = $("#characterlevel").text();
+var PCLevel = $("p span#characterlevel").text();
 var PCLevel = PCLevel.replace('Level ','');
-var PCRace = $("#characterrace").text();
-var PCClass = $("#characterclass").text();
+var PCRace = $("p span#characterrace").text();
+var PCClass = $("p span#characterclass").text();
 
 $(document).ready(function(){
   $('#t1').text(PCLevel);
@@ -358,3 +358,57 @@ $(document).ready(function() {
     $('#modwis').append(modwis);
     $('#modcha').append(modcha);
 });
+
+    $('#t2').text(stats[5]);
+    $('#t3').text(moddex);
+    $('#t4').text(modint);
+    $('#t5').text(str);
+    $('#t6').text(dex);
+});
+
+
+var classicstat = function (){
+    x = dice.d6.times(3)
+    s = x[0] + x[1] + x[2]
+    return s
+    }
+
+    var classicstats = [];
+        for (i=0; i<7; i++) {
+        stats.push(classicstat());
+        }
+    var classicstats = classicstats.sort();
+
+    $('#classic').click(function() { 
+    });
+    
+    var standardstat = function (){
+    x = dice.d6.times(4)
+    x = x.sort();
+    s = x[1] + x[2] + x[3]
+    return s
+    }
+
+    var standardstats = [];
+        for (i=0; i<7; i++) {
+        stats.push(standardstat());
+        }
+    var standardstats = standardstats.sort();    
+        
+    $('#standard').click(function() {
+    });
+    
+    var herostat = function (){
+    x = dice.d6.times(2)
+    s = x[0] + x[1] + 6
+    return s
+    }
+
+    var heroicstats = [];
+        for (i=0; i<7; i++) {
+        stats.push(herostat());
+        }
+    var heroicstats = heroicstats.sort(); 
+    
+    $('#heroic').click(function() {
+    });
