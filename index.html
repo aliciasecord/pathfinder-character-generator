@@ -2,9 +2,10 @@
 <html>
 <head>
 	<link rel='stylesheet' href='style.css'/>
-    <script src='http://code.jquery.com/jquery-1.11.1.min.js'></script>
-    <script src='http://code.jquery.com/ui/1.11.1/jquery-ui.min.js'></script>
-<script src='script.js'></script>
+    	<script src='http://code.jquery.com/jquery-1.11.1.min.js'></script>
+    	<script src='http://code.jquery.com/ui/1.11.1/jquery-ui.min.js'></script>
+    	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src='script.js'></script>
 	<link href='https://fonts.googleapis.com/css?family=Forum' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </head>
@@ -21,14 +22,12 @@
         <p><span class="btn" id="random">Random Character</span><span href="#" class="btn" id="guide">Guided Selection</span></p>
         <p>&nbsp;</p>
     </div>
-    <div class="character">
-        <h2 id="character">Your character: <br> 
-        <span id="characterlevel" class="hide">Level </span>
-        <span class="hide chosenrace Dwarf">Dwarf</span><span class="hide chosenrace Elf">Elf</span><span class="hide chosenrace Human">Human</span><span class="hide chosenrace Halfling">Halfling</span><span class="hide chosenrace Gnome">Gnome</span><span class="hide chosenrace Half-Orc">Half-Orc</span><span class="hide chosenrace Half-Elf">Half-Elf</span>
-        <span class="hide chosenclass Barbarian">Barbarian</span><span class="hide chosenclass Bard">Bard</span><span class="hide chosenclass Cleric">Cleric</span><span class="hide chosenclass Druid">Druid</span><span class="hide chosenclass Fighter">Fighter</span><span class="hide chosenclass Monk">Monk</span><br><span class="hide chosenclass Paladin">Paladin</span><span class="hide chosenclass Ranger">Ranger</span><span class="hide chosenclass Rogue">Rogue</span><span class="hide chosenclass Sorcerer">Sorcerer</span><span class="hide chosenclass Wizard">Wizard</span>
+    <div id="character">
+        <h2>Your character: <br> 
+        <span id="characterlevel"></span> <span id="characterrace"></span> <span id="characterclass"> </span>
         </h2>
     </div>
-    <div class="guided">    
+    <div id="guided">    
         <div id="level">
             <h3>Choose your level: 
                 <select id="selectlevel">
@@ -115,7 +114,6 @@
             
         </div>
         
-    
         <div id="class">
             
             <p><img src="http://i280.photobucket.com/albums/kk199/MaskedBrute/ScreenShot2013-07-22at15339PM.png" ></p>
@@ -191,9 +189,30 @@
                 <p><span class="btn" id="SelectClass">Confirm</span><span class="btn" id="ResetClass">Reset</span></p>
             </div>
         </div>
-        
-        
-    <div>
+    </div>
+    <div id="again">
+        <p><span class="btn" id="charnext">Great! Let's roll some stats</span></p>
+        <p><span class="btn" id="tryagain">Try Again</span><span href="#" class="btn" id="chooseagain">Let me choose</span></p>
+        <p>&nbsp;</p>
+    </div>
+    <div id="rolltype">
+        <h3>How do you want to roll stats?</h3>
+        <p><span class="btn" id="classic">Classic</span><span class="btn" id="standard">Standard</span><span class="btn" id="heroic">Heroic</span>
+        <!-- This part isn't built yet, but should be
+        <span class="btn" id="dicepool">Dice Pool</span><span class="btn" id="pointbuy">Point Buy</span>
+        -->
+        </p>
+    </div>
+    <div id="stats">
+        <h3>STR: <span id="str"></span> | Modifier: <span id="modstr"></span></h3>
+        <h3>DEX: <span id="dex"></span> | Modifier: <span id="moddex"></span></h3>
+        <h3>CON: <span id="con"></span> | Modifier: <span id="modint"></span></h3>
+        <h3>INT: <span id="int"></span> | Modifier: <span id="modcon"></span></h3>
+        <h3>WIS: <span id="wis"></span> | Modifier: <span id="modwis"></span></h3>
+        <h3>CHA: <span id="cha"></span> | Modifier: <span id="modcha"> | Modifier: </span></h3>
+    </div>
+    <div id="specialization"></div>
+    <div id="spellList"></div>
 </div>
 
 </body>

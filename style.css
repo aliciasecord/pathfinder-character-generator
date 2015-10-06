@@ -95,8 +95,8 @@ li.active {
     background-color: #434088;
 }
 
-#pathfinder_header {
-    width: 160px;
+#Pathfinder_Header {
+    width: 96%;
 }
 
 #level span {
@@ -142,6 +142,20 @@ li.active {
 #ConfirmRace {
 }
 
+#charnext {
+    width: 80%;
+    margin-left: 5%;
+}
+
+#tryagain {
+    width: 90px;
+    margin-left: 5%;
+}
+
+#chooseagain {
+    width: 130px;
+}
+
 div.chosenrace {
     width: 310px;
     margin: 20px 0px;
@@ -149,41 +163,21 @@ div.chosenrace {
     text-align: center;
     padding: 50px 0px;
 }
-div.chosenclass {
-    width: 310px;
-    margin: 20px 0px;
+div.chosenclass { 
+    width: 300px;
+    margin: auto auto;
     background-color: white;
     text-align: center;
-    padding: 50px 0px;
+    padding: 50px 10px;
+}
+
+#character h2 {
+    font-size: 50px;    
+}
+
+#character span {
+    font-size: 30px;
 }
 
 
 /* colors: 88846F FFFFFF D5D2C3 434088 C4C3D5 */
-
-@media only screen and (min-width: 600px) {
-    h1 {
-        font-size: 40;
-    }
-    #pathfinder_header {
-        width: 200;
-    }
-}
-
-@media only screen and (min-width: 1020px) {
-	h1 {
-	    font-size: 50;
-	}
-	
-	#container {
-		max-width: 100%;
-		background: #aaa;
-	}
-	
-	
-	section,
-	aside {
-		width: 100%;
-	
-	}
-
-}
