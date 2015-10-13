@@ -243,13 +243,14 @@ $(document).ready(function() {
         /* Roll Stats */
     $('#charnext').click(function() {
         $('#again').hide();
-        $('#rolltype').fadeIn('fast');
+        $('#stats').fadeIn('fast');
+        //$('#rolltype').fadeIn('fast');
     });
     
-    $('#classic, #standard, #heroic').click(function() {
+    /* $('#classic, #standard, #heroic').click(function() {
         $('#stats').fadeIn('fast');
         $('#rolltype').hide();
-    });
+    }); 
     
     $('#classic').click(function() { 
     });
@@ -259,7 +260,9 @@ $(document).ready(function() {
     
     
     $('#heroic').click(function() {
-    });
+    }); */
+    
+    
     
     $('#str').append(str); 
     $('#dex').append(dex);
