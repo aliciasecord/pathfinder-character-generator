@@ -32,6 +32,9 @@ var dice = {
 
 var stats = [10, 12, 14, 14, 16, 20];
 
+var PCrace = "";
+var PCclass = "";
+
 $(document).ready(function() {
     /* At the start, the .character div should be hidden */
     $('.hide, #character, #stats, #guided, #again, #rolltype').hide();
@@ -102,7 +105,7 @@ $(document).ready(function() {
     });
     
     $('#ChooseRace').click(function() {
-        var PCrace = Race;
+        var PCrace = Race[Math.floor(Math.random() * Race.length)];
         $('#characterrace').append(PCrace);
         $('#race').hide('fast');
         $('#class').fadeIn('fast');
@@ -192,7 +195,7 @@ $(document).ready(function() {
     });
     
     $('#ChooseClass').click(function() {
-        var PCclass = Class;
+        var PCclass = Class[Math.floor(Math.random() * Class.length)];
         $('#characterclass').append(PCclass);
         $('#class').hide();
         $('#again').fadeIn('fast');
@@ -263,41 +266,41 @@ $(document).ready(function() {
     }); */
     
     /* Calculate STR */
-    if (PCClass == 'Barbarian' || PCClass == 'Fighter' || PCClass == 'Monk') {str = stats[5]}
-    else if (PCClass == 'Paladin' || PCClass == 'Druid' || PCClass == 'Ranger') {str = stats[4]}
-    else if (PCClass == 'Bard' || PCClass == 'Cleric' || PCClass == 'Sorcerer') {str = stats[0]}
+    if (PCclass == 'Barbarian' || PCclass == 'Fighter' || PCclass == 'Monk') {str = stats[5]}
+    else if (PCclass == 'Paladin' || PCclass == 'Druid' || PCclass == 'Ranger') {str = stats[4]}
+    else if (PCclass == 'Bard' || PCclass == 'Cleric' || PCclass == 'Sorcerer') {str = stats[0]}
     
     /* Calculate DEX */
-    if (PCClass == 'Rogue' || PCClass == 'Ranger') {dex = stats[5]}
-    else if (PCClass == 'Bard' || PCClass == 'Wizard' || PCClass == 'Sorcerer') {dex = stats[4]}
-    else if (PCClass == 'Barbarian' || PCClass == 'Fighter') {dex = stats[3]}
-    else if (PCClass == 'Druid' || PCClass == 'Monk' || PCClass == 'Paladin') {dex = stats[2]}
-    else if (PCClass == 'Cleric') {dex = stats[1]}
+    if (PCclass == 'Rogue' || PCclass == 'Ranger') {dex = stats[5]}
+    else if (PCclass == 'Bard' || PCclass == 'Wizard' || PCclass == 'Sorcerer') {dex = stats[4]}
+    else if (PCclass == 'Barbarian' || PCclass == 'Fighter') {dex = stats[3]}
+    else if (PCclass == 'Druid' || PCclass == 'Monk' || PCclass == 'Paladin') {dex = stats[2]}
+    else if (PCclass == 'Cleric') {dex = stats[1]}
     
     /* Calculate INT */
-    if (PCClass == 'Wizard') {int = stats[5]}
-    else if (PCClass == 'Rogue') {int = stats[4]}
-    else if (PCClass == 'Bard') {int = stats[3]}
-    else if (PCClass == 'Cleric') {int = stats[2]}
-    else if (PCClass == 'Barbarian' || PCClass == 'Fighter' || PCClass == 'Monk' || PCClass == 'Paladin' || PCClass == 'Druid' || PCClass == 'Sorcerer') {int = stats[1]}
+    if (PCclass == 'Wizard') {int = stats[5]}
+    else if (PCclass == 'Rogue') {int = stats[4]}
+    else if (PCclass == 'Bard') {int = stats[3]}
+    else if (PCclass == 'Cleric') {int = stats[2]}
+    else if (PCclass == 'Barbarian' || PCclass == 'Fighter' || PCclass == 'Monk' || PCclass == 'Paladin' || PCclass == 'Druid' || PCClass == 'Sorcerer') {int = stats[1]}
     
     /* Calculate WIS */
-    if (PCClass == 'Druid' || PCClass == 'Cleric') {wis = stats[5]}
-    else if (PCClass == 'Monk' || PCClass == 'Ranger') {wis = stats[3]}
-    else if (PCClass == 'Barbarian' || PCClass == 'Fighter') {wis = stats[2]}
-    else if (PCClass == 'Rogue' || PCClass == 'Barbarian' || PCClass == 'Fighter' || PCClass == 'Sorcerer') {wis = stats[2]}
-    else if (PCClass == 'Bard') {wis = stats[1]}
-    else if (PCClass == 'Paladin') {wis = stats[0]}
+    if (PCclass == 'Druid' || PCclass == 'Cleric') {wis = stats[5]}
+    else if (PCclass == 'Monk' || PCclass == 'Ranger') {wis = stats[3]}
+    else if (PCclass == 'Barbarian' || PCclass == 'Fighter') {wis = stats[2]}
+    else if (PCclass == 'Rogue' || PCclass == 'Barbarian' || PCclass == 'Fighter' || PCclass == 'Sorcerer') {wis = stats[2]}
+    else if (PCclass == 'Bard') {wis = stats[1]}
+    else if (PCclass == 'Paladin') {wis = stats[0]}
     
     /* Calculate CON */
-    if (PCClass == 'Fighter' || PCClass == 'Barbarian' || PCClass == 'Monk') {con = stats[4]}
-    else if (PCClass == 'Rogue' || PCClass == 'Cleric' || PCClass == 'Druid' || PCClass == 'Paladin') {con = stats[4]}
-    else if (PCClass == 'Bard' || PCClass == 'Ranger' || PCClass == 'Sorcerer') {con = stats[3]}
+    if (PCclass == 'Fighter' || PCclass == 'Barbarian' || PCclass == 'Monk') {con = stats[4]}
+    else if (PCclass == 'Rogue' || PCclass == 'Cleric' || PCclass == 'Druid' || PCclass == 'Paladin') {con = stats[4]}
+    else if (PCclass == 'Bard' || PCclass == 'Ranger' || PCclass == 'Sorcerer') {con = stats[3]}
     
     /* Calculate CHA*/
-    if (PCClass == 'Bard' || PCClass == 'Sorcerer' || PCClass == 'Paladin') {cha = stats[5]}
-    else if (PCClass == 'Cleric') {cha = stats[4]}
-    else if (PCClass == PCClass == 'Rogue' || PCClass == 'Fighter' || PCClass == 'Monk' || 'Druid' || PCClass == 'Barbarian' || PCClass == 'Ranger') {cha = stats[0]}
+    if (PCclass == 'Bard' || PCclass == 'Sorcerer' || PCclass == 'Paladin') {cha = stats[5]}
+    else if (PCclass == 'Cleric') {cha = stats[4]}
+    else if (PCclass == 'Rogue' || PCclass == 'Fighter' || PCclass == 'Monk' || 'Druid' || PCclass == 'Barbarian' || PCclass == 'Ranger') {cha = stats[0]}
     
     
     $('#str').append(str); 
