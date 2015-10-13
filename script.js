@@ -302,6 +302,26 @@ $(document).ready(function() {
     else if (PCclass == 'Cleric') {cha = stats[4]}
     else if (PCclass == 'Rogue' || PCclass == 'Fighter' || PCclass == 'Monk' || 'Druid' || PCclass == 'Barbarian' || PCclass == 'Ranger') {cha = stats[0]}
     
+    if (PCrace == 'Halfling' || PCRace == 'Gnome') {str = str - 2}
+    if (PCrace == 'Elf' || PCRace == 'Halfling') {dex = dex + 2}
+    if (PCrace == 'Elf') {int = int + 2}
+    if (PCrace == 'Dwarf') {wis = wis + 2}
+    if (PCrace == 'Dwarf' || PCRace == 'Gnome') {con = con + 2}
+    if (PCrace == 'Elf') {con = con - 2}
+    if (PCrace == 'Halfling' || PCRace == 'Gnome') {cha = cha + 2}
+    if (PCrace == 'Dwarf') {cha = cha - 2}
+    if (PCrace == 'Human' || PCRace == 'Half-Elf' || PCRace == 'Half-Orc') {
+        if (PCclass == 'Barbarian' || PCclass == 'Fighter' || PCclass == 'Monk')
+            {str = str + 2}
+        else if (PCclass == 'Rogue' || PCclass == 'Ranger')
+            {dex = dex + 2}
+        else if (PCclass == 'Wizard')
+            {int = int + 2}
+        else if (PCclass == 'Druid' || PCclass == 'Cleric')
+            {wis = wis + 2}
+        else if (PCclass == 'Bard' || PCclass == 'Paladin' || PCclass == 'Sorcerer')
+            {cha = cha + 2}
+        }
     
     $('#str').append(str); 
     $('#dex').append(dex);
