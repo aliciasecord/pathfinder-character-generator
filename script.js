@@ -1,10 +1,8 @@
 /* Array for random race selection */
 var Race = ['Dwarf', 'Elf', 'Gnome', 'Half-Elf', 'Half-Orc', 'Halfling', 'Human']
-var Race = Race[Math.floor(Math.random() * Race.length)]
 
 /* Array for random race selection */
 var Class = ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Wizard']
-var Class = Class[Math.floor(Math.random() * Class.length)]
 
 /* Functions for rolling any die */
 function makeDie(sides) {
@@ -228,11 +226,11 @@ $(document).ready(function() {
         $('#characterlevel').append('Level ' + PClevel);
         
         /*Choose race*/
-        var PCrace = Race;
+        var PCrace = Race[Math.floor(Math.random() * Race.length)];
         $('#characterrace').append(PCrace);
         
         /*Choose Class*/
-        var PCclass = Class;
+        var PCclass = Class[Math.floor(Math.random() * Class.length)];
         $('#characterclass').append(PCclass); 
         /* Then hide the choices and show the character description */
         $('#choose').hide();
