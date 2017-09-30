@@ -1,8 +1,7 @@
 body {
-    background-image: url(http://i669.photobucket.com/albums/vv59/asecord/bg-grid.jpg);
+    background-image: url(images//bg-grid.jpg);
     font-family: 'Open Sans', sans-serif;
     font-size: 12px;
-    width: 360px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -73,7 +72,8 @@ li.active {
 
 .container {
     background-color: rgba(255, 255, 255, 0.6);
-    margin: 2%;
+    width: 320px;
+    margin: auto;
     padding: 2%;   
 }
 
@@ -177,6 +177,10 @@ div.chosenclass {
 
 #character span {
     font-size: 30px;
+}
+
+#rolltype span {
+    width: 65px;;    
 }
 
 

@@ -23,16 +23,33 @@ function makeDie(sides) {
   return die;
 }
 
-var dice = {
-  d4: makeDie(4),
-  d6: makeDie(6),
-  d8: makeDie(8),
-  d10: makeDie(10),
-  d12: makeDie(12),
-  d20: makeDie(20),
-};
+function noOnes(sides) {
+  var die = function () {
+    return 2 + Math.random() * sides | 0;
+  };
 
+  die.times = function (count) {
+    var rolls = [];
+    for(var i = 0 ; i < count ; i++) {
+      rolls.push(this());
+    }
+    return rolls;
+  };
 
+  return die;
+}
+
+var rollstat = function () {
+    var x = noOnes(5).times(4)
+    var x = x.sort();
+    s = x[1] + x[2] + x[3];
+    return s
+    }
+
+var stats = [rollstat(), rollstat(), rollstat(), rollstat(), rollstat(), rollstat()];
+var stats = stats.sort(function (a, b) { 
+    return a - b;
+});
 
 $(document).ready(function() {
     /* At the start, the .character div should be hidden */
@@ -242,26 +259,88 @@ $(document).ready(function() {
         $('#again').fadeIn('fast');
     });
     
-        /* Roll Stats */
+    /* Set variables going forward */
+var PCRace = $("#characterrace").text();
+var PCClass = $("#characterclass").text();
+var PCLevel = $("#characterlevel").text();
+var PCLevel = parseInt(PCLevel.replace('Level ',''));
+
+    /* Roll Stats */
     $('#charnext').click(function() {
         $('#again').hide();
-        $('#rolltype').fadeIn('fast');
-    });
-    
-    $('#classic, #standard, #heroic').click(function() {
+    /*    $('#rolltype').fadeIn('fast');    });     $('#classic, #standard, #heroic').click(function() {         $('#rolltype').hide(); */
         $('#stats').fadeIn('fast');
-        $('#rolltype').hide();
     });
     
-    $('#classic').click(function() { 
-    });
+    /* Calculate STR */
+    if (PCClass == 'Barbarian' || PCClass == 'Fighter' || PCClass == 'Monk') {str = stats[5]}
+    else if (PCClass == 'Paladin' || PCClass == 'Druid' || PCClass == 'Ranger') {str = stats[4]}
+    else if (PCClass == 'Bard' || PCClass == 'Cleric' || PCClass == 'Sorcerer') {str = stats[0]}
+    else {str = stats[5]}
     
-    $('#standard').click(function() {
-    });
+    /* Calculate DEX */
+    if (PCClass == 'Rogue' || PCClass == 'Ranger') {dex = stats[5]}
+    else if (PCClass == 'Bard' || PCClass == 'Wizard' || PCClass == 'Sorcerer') {dex = stats[4]}
+    else if (PCClass == 'Barbarian' || PCClass == 'Fighter') {dex = stats[3]}
+    else if (PCClass == 'Druid' || PCClass == 'Monk' || PCClass == 'Paladin') {dex = stats[2]}
+    else if (PCClass == 'Cleric') {dex = stats[1]}
+    else {dex = stats[3]}
     
+    /* Calculate INT */
+    if (PCClass == 'Wizard') {int = stats[5]}
+    else if (PCClass == 'Rogue') {int = stats[4]}
+    else if (PCClass == 'Bard') {int = stats[3]}
+    else if (PCClass == 'Cleric') {int = stats[2]}
+    else if (PCClass == 'Barbarian' || PCClass == 'Fighter' || PCClass == 'Monk' || PCClass == 'Paladin' || PCClass == 'Druid' || PCClass == 'Sorcerer') {int = stats[1]}
+    else {int = stats[1]}
     
-    $('#heroic').click(function() {
-    });
+    /* Calculate WIS */
+    if (PCClass == 'Druid' || PCClass == 'Cleric') {wis = stats[5]}
+    else if (PCClass == 'Monk' || PCClass == 'Ranger') {wis = stats[3]}
+    else if (PCClass == 'Rogue' || PCClass == 'Barbarian' || PCClass == 'Fighter' || PCClass == 'Sorcerer') {wis = stats[2]}
+    else if (PCClass == 'Bard') {wis = stats[1]}
+    else if (PCClass == 'Paladin') {wis = stats[0]}
+    else {wis = stats[2]}
+    
+    /* Calculate CON */
+    if (PCClass == 'Fighter' || PCClass == 'Barbarian' || PCClass == 'Monk' || PCClass == 'Rogue' || PCClass == 'Cleric' || PCClass == 'Druid' || PCClass == 'Paladin') {con = stats[4]}
+    else if (PCClass == 'Bard' || PCClass == 'Ranger' || PCClass == 'Sorcerer') {con = stats[3]}
+    else {con = stats[4]}
+    
+    /* Calculate CHA*/
+    if (PCClass == 'Bard' || PCClass == 'Sorcerer' || PCClass == 'Paladin') {cha = stats[5]}
+    else if (PCClass == 'Cleric') {cha = stats[4]}
+    else if (PCClass == PCClass == 'Rogue' || PCClass == 'Fighter' || PCClass == 'Monk' || 'Druid' || PCClass == 'Barbarian' || PCClass == 'Ranger') {cha = stats[0]} 
+    else {cha = stats[0]} 
+
+    if (PCRace == 'Halfling' || PCRace == 'Gnome') {str = str - 2}
+    if (PCRace == 'Elf' || PCRace == 'Halfling') {dex = dex + 2}
+    if (PCRace == 'Elf') {int = int + 2}
+    if (PCRace == 'Dwarf') {wis = wis + 2}
+    if (PCRace == 'Dwarf' || PCRace == 'Gnome') {con = con + 2}
+    if (PCRace == 'Elf') {con = con - 2}
+    if (PCRace == 'Halfling' || PCRace == 'Gnome') {cha = cha + 2}
+    if (PCRace == 'Dwarf') {cha = cha - 2}
+    else {
+        if (PCClass == 'Barbarian' || PCClass == 'Fighter' || PCClass == 'Monk')
+            {str = str + 2}
+        else if (PCClass == 'Rogue' || PCClass == 'Ranger')
+            {dex = dex + 2}
+        else if (PCClass == 'Wizard')
+            {int = int + 2}
+        else if (PCClass == 'Druid' || PCClass == 'Cleric')
+            {wis = wis + 2}
+        else if (PCClass == 'Bard' || PCClass == 'Paladin' || PCClass == 'Sorcerer')
+            {cha = cha + 2}
+        
+        }
+
+var modstr = Math.floor((str - 10)/2);
+var moddex = Math.floor((dex - 10)/2);
+var modint = Math.floor((int - 10)/2);
+var modcon = Math.floor((con - 10)/2);
+var modwis = Math.floor((wis - 10)/2);
+var modcha = Math.floor((cha - 10)/2);
     
     $('#str').append(str); 
     $('#dex').append(dex);
@@ -277,5 +356,11 @@ $(document).ready(function() {
     $('#modcon').append(modcon);
     $('#modwis').append(modwis);
     $('#modcha').append(modcha);
-    
+
+/* Functions for rolling stats */
+    $('#t2').text();
+    $('#t3').text();
+    $('#t4').text();
+    $('#t5').text();
+    $('#t6').text();
 });
