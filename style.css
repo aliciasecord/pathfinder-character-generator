@@ -5,7 +5,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Forum', cursive;
+    font-family: serif;
     text-align: center;
 }
 
@@ -74,7 +74,7 @@ li.active {
     background-color: rgba(255, 255, 255, 0.6);
     width: 320px;
     margin: auto;
-    padding: 2%;   
+    padding: 2%;
 }
 
 .btn {
@@ -95,6 +95,10 @@ li.active {
     background-color: #434088;
 }
 
+.hide {
+  display: none;
+}
+
 #Pathfinder_Header {
     width: 96%;
 }
@@ -113,7 +117,7 @@ li.active {
 
 #race {
     padding: 0% 3%;
-    width: 94%;    
+    width: 94%;
 }
 
 #race img {
@@ -163,7 +167,7 @@ div.chosenrace {
     text-align: center;
     padding: 50px 0px;
 }
-div.chosenclass { 
+div.chosenclass {
     width: 300px;
     margin: auto auto;
     background-color: white;
@@ -172,7 +176,7 @@ div.chosenclass {
 }
 
 #character h2 {
-    font-size: 50px;    
+    font-size: 50px;
 }
 
 #character span {
@@ -180,7 +184,7 @@ div.chosenclass {
 }
 
 #rolltype span {
-    width: 65px;;    
+    width: 65px;;
 }
 
 
